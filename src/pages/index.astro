@@ -1,17 +1,141 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import Marquee from "../components/Marquee.astro";
+import { TypewriterRotation } from "../components/TypewriterRotation";
+import { SocialIconButtons } from "../components/SocialIconButtons";
+import GlassContainer from "../components/GlassContainer.astro";
+import { TiltCard } from '../components/TiltCard'; 
+import {InViewSlideUpFade} from '../components/AnimatePresence';
+import { Github, Link, Mail, Newspaper } from "lucide-react";
 ---
+<Layout>
+	<Marquee />
+	<InViewSlideUpFade client:visible>
+		<section class="min-h-screen m-0 flex flex-col items-center justify-center">
+			<div class="flex flex-col-reverse md:flex-row gap-0 md:gap-8 w-full">
+				<div class="flex flex-col flex-[2_1_0%] min-w-0">
+					<h1 class="text-4xl md:text-6xl lg:text-8xl font-semibold tracking-tighter text-foreground">
+						Memo Rebolledo
+					</h1>
+					<TypewriterRotation
+						client:load
+						className="text-xl md:text-4xl lg:text-6xl text-accent font-plex tracking-tighter -mt-3"
+						phrases={["Software Engineer", "Frontend Engineer", "Accessibility Advocate", "Performance Enthusiast"]}
+						everyMs={1000}
+						typeMs={50}
+						deleteMs={30}
+					/>
+					<p class="text-muted-foreground tracking-tighter font-plex md:max-w-2xl py-8 text-sm md:text-md lg:text-lg">Hello there 👋 I am a Senior Frontend Engineer specializing in accessible UI, design systems, and performance. I work closely with design and product teams to ship polished web experiences that scale.</p>
+					<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="pb-8 underline decoration-accent hover:text-accent focus:text-accent text-muted-foreground font-plex flex items-center gap-1 text-sm md:text-md lg:text-lg"><Newspaper className="w-4 h-4" /> view my resume</a>
+				</div>
+	
+				<div class="flex-[1_1_0%] min-w-0 flex justify-center items-center py-8 lg:py-0">
+					<TiltCard client:visible>
+						<div class="overflow-hidden rounded-full size-32 sm:size-64">
+							<img
+								src="/images/self.jpg"
+								alt="Meet Memo"
+								width={256}
+								height={256}
+								loading="eager"
+								class="size-full object-cover object-[center_28%] scale-150 origin-center"
+							/>
+						</div>
+					</TiltCard>
+				</div>
+			</div>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+			<div class="w-full flex flex-col items-center gap-4">
+				<GlassContainer rounded="full" padding="sm" class="flex gap-2 items-center">
+					<div class="h-4 w-4 animate-pulse rounded-full bg-green-600"/>
+					<p class="text-glass-foreground font-plex uppercase">Open to work</p>
+				</GlassContainer>
+				<SocialIconButtons client:load className="justify-center" />
+			</div>
+		</section>
+	</InViewSlideUpFade>
+
+	<section id="about" class="w-full flex flex-col justify-center py-12 md:py-16 gap-4">
+		<InViewSlideUpFade client:visible>
+			<h2 class="text-foreground font-bold font-space-mono tracking-tighter text-2xl md:text-4xl lg:text-6xl">About Me</h2>
+			<p class="text-muted-foreground tracking-tighter font-plex text-sm md:text-md lg:text-lg">I’m a Senior Frontend Engineer with 7+ years building user-centered products in <span class="underline decoration-accent">React and TypeScript</span>, with a strong focus on <span class="underline decoration-accent">accessibility</span> (WCAG/ARIA), <span class="underline decoration-accent">performance</span>, <span class="underline decoration-accent">design systems</span>, and frontend architecture. I’ve led complex initiatives from research and API design all the way through QA and rollout, and I like using Web Vitals/Lighthouse + real-user telemetry to spot friction and improve reliability.</p>
+			<br />
+			<p class="text-muted-foreground tracking-tighter font-plex text-sm md:text-md lg:text-lg">Outside of shipping features, I enjoy building shared UI foundations—component libraries, interaction patterns, and standards that help teams move faster without sacrificing quality.</p>
+			<br />
+			<p class="text-muted-foreground tracking-tighter font-plex text-sm md:text-md lg:text-lg">Outside of software, I am very passionate about music and photography.</p>
+		</InViewSlideUpFade>
+	</section>
+
+	<section id="projects" class="w-full flex flex-col justify-center py-12 md:py-16 gap-4">
+		<InViewSlideUpFade client:visible>
+			<h2 class="text-foreground font-bold font-space-mono tracking-tighter text-2xl md:text-4xl lg:text-6xl">Projects</h2>
+			<GlassContainer fullWidth>
+				<h3 class="text-foreground font-bold font-space-mono text-md md:text-lg lg:text-xl">arcdb.app</h3>
+				<hr class="border-glass-border my-2" />
+				<p class="text-glass-muted font-plex text-sm md:text-md lg:text-lg">Wiki-style site that helps Arc Raiders players have the perfect companion for the game. Used by hundreds of users weekly.</p>
+				<div class="w-full flex justify-start md:justify-end gap-4">
+					<span class="text-foreground flex items-center gap-1">
+						<Github className="w-4 h-4" />
+						<a href="https://github.com/guillermo-rebolledo/arc-raiders-db" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold font-plex">repo</a>
+					</span>
+					<span class="text-foreground flex items-center gap-1">
+						<Link className="w-4 h-4" />
+						<a href="https://arcdb.app" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold font-plex">visit</a>
+					</span>
+				</div>
+			</GlassContainer>
+		</InViewSlideUpFade>
+	</section>
+
+	<section id="experience" class="w-full flex flex-col justify-center py-12 md:py-16 gap-8">
+		<InViewSlideUpFade client:visible>
+			<h2 class="text-foreground font-bold font-space-mono tracking-tighter text-2xl md:text-4xl lg:text-6xl">Experience</h2>
+			<GlassContainer fullWidth>
+				<h3 class="text-foreground font-bold font-space-mono text-md md:text-lg lg:text-xl">Cerby — Senior Frontend Engineer (Sep 2021 – Nov 2025)</h2>
+				<hr class="border-glass-border my-2" />
+				<ul class="list-disc list-inside text-sm md:text-md lg:text-lg">
+					<li class="text-glass-muted font-plex">Led frontend execution for core onboarding/admin experiences, helping enterprise customers adopt the product more smoothly. </li>
+					<li class="text-glass-muted font-plex">Drove <span class="underline decoration-accent">accessibility</span> improvements across key surfaces (WCAG/ARIA), raising overall usability and compliance. </li>
+					<li class="text-glass-muted font-plex">Improved <span class="underline decoration-accent">performance</span> and perceived speed on major flows through profiling + targeted UI optimizations (Lighthouse/Vitals-oriented work).</li>
+					<li class="text-glass-muted font-plex">Built and scaled the Cerberus design system across Web/Extension/Mobile, <span class="underline decoration-accent">reducing UI inconsistencies</span> and <span class="underline decoration-accent">speeding up feature delivery</span>. </li>
+					<li class="text-glass-muted font-plex">Owned password-manager migration features end-to-end (LastPass → 1Password/Dashlane), enabling broader <span class="underline decoration-accent">customer adoption</span>.</li>
+					<li class="text-glass-muted font-plex">Instrumented <span class="underline decoration-accent">product analytics</span> (Mixpanel) to identify drop-offs and validate UX changes with funnel data.</li>
+				</ul>
+			</GlassContainer>
+		</InViewSlideUpFade>
+
+		<InViewSlideUpFade client:visible>
+			<GlassContainer fullWidth>
+				<h3 class="text-foreground font-bold font-space-mono text-md md:text-lg lg:text-xl">Wizeline — Software Engineer (Jul 2018 – Sep 2021)</h2>
+				<hr class="border-glass-border my-2" />
+				<ul class="list-disc list-inside text-sm md:text-md lg:text-lg">
+					<li class="text-glass-muted font-plex">WSJ/Dow Jones: standardized newsletter UI into reusable <span class="underline decoration-accent">React components</span>, improving consistency and maintainability for a platform serving <span class="underline decoration-accent">3M+ subscribers</span>.</li>
+					<li class="text-glass-muted font-plex">Led a small team building a Slack-based recognition product (Node/React/Postgres), shipping a daily-use workflow that improved engagement in the company.</li>
+					<li class="text-glass-muted font-plex">Built features for a suite rental platform for Chase Center (Next.js + GraphQL), improving <span class="underline decoration-accent">SSR stability</span> and <span class="underline decoration-accent">responsiveness</span> for mobile users.</li>
+				</ul>
+			</GlassContainer>
+		</InViewSlideUpFade>
+
+		<InViewSlideUpFade client:visible>
+			<GlassContainer fullWidth>
+				<h3 class="text-foreground font-bold font-space-mono text-md md:text-lg lg:text-xl">Universidad de Guanajuato — Software Engineer (Jul 2017 – Jul 2018)</h2>
+				<hr class="border-glass-border my-2" />
+				<ul class="list-disc list-inside text-sm md:text-md lg:text-lg">
+					<li class="text-glass-muted font-plex">Built a job placement platform connecting graduating students with employers.</li>
+				</ul>
+			</GlassContainer>
+		</InViewSlideUpFade>
+	</section>
+
+	<section id="contact" class="w-full flex flex-col justify-center py-12 md:py-16 gap-8">
+		<InViewSlideUpFade client:visible>
+			<h2 class="text-foreground font-bold font-space-mono tracking-tighter text-2xl md:text-4xl lg:text-6xl">Let’s work together!</h2>
+			<p class="text-muted-foreground tracking-tighter font-plex py-8 text-sm md:text-md lg:text-lg">If you’re building a product that needs clean UI, strong foundations, and great performance, I’d love to help. I’m especially interested in frontend roles where I can partner closely with design and product to ship thoughtful experiences.</p>
+			<div class="w-full flex justify-start md:justify-center gap-8">
+				<a href="mailto:gortiz.dev@gmail.com" target="_blank" rel="noopener noreferrer" class="pb-8 underline decoration-accent hover:text-accent focus:text-accent text-muted-foreground font-plex flex items-center gap-1 text-sm md:text-md lg:text-lg"><Mail className="w-4 h-4" /> email me</a>
+				<a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="pb-8 underline decoration-accent hover:text-accent focus:text-accent text-muted-foreground font-plex flex items-center gap-1 text-sm md:text-md lg:text-lg"><Newspaper className="w-4 h-4" /> view my resume</a>
+			</div>
+		</InViewSlideUpFade>
+	</section>
+</Layout>
+

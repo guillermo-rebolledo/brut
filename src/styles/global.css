@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-mono";
+@import "@fontsource/instrument-serif";
+@import "@fontsource/space-mono";
+
+/* Define how the `dark:` variant works in Tailwind v4.
+   We base it on a `data-theme="dark"` attribute on the <html> element. */
+@custom-variant dark (&&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-plex:
+    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  --font-instrument-serif: "Instrument Serif", serif;
+  --font-instrument-sans: "Instrument Sans Variable", sans-serif;
+  --font-space-mono: "Space Mono", monospace;
+
+  --animate-marquee: marquee 20s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  --color-glow-color: oklch(0.5 0.22 170 / 0.15);
+  --color-primary: oklch(0.72 0.2 170);
+  --color-accent: oklch(0.72 0.2 170);
+  --color-foreground: oklch(0.985 0 0);
+  --color-muted-foreground: oklch(0.86 0 0);
+  --color-cursor: oklch(0.646 0.222 41.116);
+
+  /* Glass panel palette – use for content inside glass on dark background */
+  --color-glass-foreground: oklch(0.96 0 0);
+  --color-glass-muted: oklch(0.78 0 0);
+  --color-glass-border: oklch(1 0 0 / 0.12);
+  --color-primary-muted: oklch(0.65 0.14 170);
+}
+
+/* Text selection: accent background, white text for readability. */
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+::-moz-selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Scrollbar: transparent track app-wide. */
+* {
+  scrollbar-color: var(--color-glass-border) transparent;
+  scrollbar-width: thin;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-glass-border);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--color-glass-muted);
+}
+
+/* Body background – circular gradient, centered, primary/accent. */
+.page-gradient {
+  background-color: #000;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    oklch(0.72 0.2 170 / 0.25) 0%,
+    oklch(0.72 0.2 170 / 0.08) 40%,
+    transparent 70%
+  );
+}

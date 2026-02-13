@@ -1,0 +1,46 @@
+---
+import '../styles/global.css'
+
+const {
+  title = 'Brut',
+  description = 'Brut – Astro app',
+  lang = 'en',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <script is:inline>
+      (function () {
+        var key = 'theme';
+        var root = document.documentElement;
+        var stored = null;
+        try {
+          stored = window.localStorage.getItem(key);
+        } catch (e) {
+          stored = null;
+        }
+        var initial;
+        if (stored === 'light' || stored === 'dark') {
+          initial = stored;
+        } else {
+          var mq = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+          initial = mq && mq.matches ? 'dark' : 'light';
+        }
+        root.setAttribute('data-theme', initial);
+        root.style.colorScheme = initial;
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen page-gradient">
+    <main class="w-full max-w-full sm:max-w-3xl md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        <slot />
+    </main>
+  </body>
+</html>
+
