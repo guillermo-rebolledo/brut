@@ -15,7 +15,7 @@
   --font-instrument-sans: "Instrument Sans Variable", sans-serif;
   --font-space-mono: "Space Mono", monospace;
 
-  --animate-marquee: marquee 20s linear infinite;
+  --animate-marquee: marquee 200s linear infinite;
   @keyframes marquee {
     0% {
       transform: translateX(0%);
