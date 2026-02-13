@@ -1,2 +1,22 @@
-// React • TypeScript • UI/UX • Brutalism • Web Development • Creative Coding • Open Source • React • TypeScript • UI/UX • Brutalism • Web Development • Creative Coding • Open Source
-export const TECHNOLOGIES = ["React", "TypeScript", "UI/UX"];
+export const TECHNOLOGIES = [
+  "React",
+  "TypeScript",
+  "UI/UX",
+  "Accessibility",
+  "Performance",
+  "Design Systems",
+  "Frontend Architecture",
+  "Node.js",
+  "Next.js",
+  "Tailwind CSS",
+  "Storybook",
+  "Python",
+  "AWS",
+  "Sentry",
+  "Datadog",
+  "Git",
+  "REST",
+  "GraphQL",
+  "Jest",
+  "Testing Library",
+];
