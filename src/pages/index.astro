@@ -7,8 +7,33 @@ import GlassContainer from "../components/GlassContainer.astro";
 import { TiltCard } from '../components/TiltCard'; 
 import {InViewSlideUpFade} from '../components/AnimatePresence';
 import { Github, Link, Mail, Newspaper } from "lucide-react";
+import { SITE_URL, SOCIAL_IMAGE } from "../constants";
 ---
-<Layout>
+<Layout
+	title="Memo Rebolledo – Senior Frontend Engineer"
+	description="Senior Frontend Engineer specializing in accessible UI, design systems, and performance. I build polished, reliable web experiences in React and TypeScript."
+	url={`${SITE_URL}/`}
+	image={SOCIAL_IMAGE}
+>
+	<script
+		slot="head"
+		type="application/ld+json"
+		is:inline
+	>
+		{JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			name: "Memo Rebolledo",
+			jobTitle: "Senior Frontend Engineer",
+			url: SITE_URL,
+			image: SOCIAL_IMAGE,
+			email: "mailto:gortiz.dev@gmail.com",
+			sameAs: [
+				"https://github.com/guillermo-rebolledo",
+				"https://www.linkedin.com/in/gortizdev/",
+			],
+		})}
+	</script>
 	<Marquee />
 	<InViewSlideUpFade client:visible>
 		<section class="min-h-screen m-0 flex flex-col items-center justify-center">
