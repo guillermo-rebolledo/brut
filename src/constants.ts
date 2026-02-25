@@ -1,12 +1,8 @@
 export const SITE_TITLE = "Memo Rebolledo – Senior Frontend Engineer";
 export const SITE_DESCRIPTION =
   "Senior Frontend Engineer specializing in accessible UI, design systems, and performance. I build polished, reliable web experiences in React and TypeScript.";
-
-/**
- * Update this to the production URL of your site.
- * Example: https://gortiz.dev
- */
-export const SITE_URL = "https://example.com";
+  
+export const SITE_URL = "https://memorebo.dev";
 
 export const SOCIAL_IMAGE = "/images/self.jpg";
 

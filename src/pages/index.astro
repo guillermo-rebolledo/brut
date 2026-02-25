@@ -95,6 +95,23 @@ import { SITE_URL, SOCIAL_IMAGE } from "../constants";
 		<InViewSlideUpFade client:visible>
 			<h2 class="text-foreground font-bold font-space-mono tracking-tighter text-2xl md:text-4xl lg:text-6xl">Projects</h2>
 			<GlassContainer fullWidth>
+				<h3 class="text-foreground font-bold font-space-mono text-md md:text-lg lg:text-xl">perflabs.dev</h3>
+				<hr class="border-glass-border my-2" />
+				<p class="text-glass-muted font-plex text-sm md:text-md lg:text-lg">A production-ready web performance monitoring application built with Next.js 15, featuring automated PageSpeed Insights audits, scheduled monitoring, and comprehensive performance analytics.</p>
+				<div class="w-full flex justify-start md:justify-end gap-4">
+					<span class="text-foreground flex items-center gap-1">
+						<Github className="w-4 h-4" />
+						<a href="https://github.com/guillermo-rebolledo/web-perf" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold font-plex">repo</a>
+					</span>
+					<span class="text-foreground flex items-center gap-1">
+						<Link className="w-4 h-4" />
+						<a href="https://perflabs.dev" target="_blank" rel="noopener noreferrer" class="hover:underline font-bold font-plex">visit</a>
+					</span>
+				</div>
+			</GlassContainer>
+		</InViewSlideUpFade>
+		<InViewSlideUpFade client:visible>
+			<GlassContainer fullWidth>
 				<h3 class="text-foreground font-bold font-space-mono text-md md:text-lg lg:text-xl">arcdb.app</h3>
 				<hr class="border-glass-border my-2" />
 				<p class="text-glass-muted font-plex text-sm md:text-md lg:text-lg">Wiki-style site that helps Arc Raiders players have the perfect companion for the game. Used by hundreds of users weekly.</p>
